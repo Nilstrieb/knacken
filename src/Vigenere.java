@@ -22,14 +22,14 @@ public class Vigenere {
     private static String encode(String text, String secret) {
         final String preprocessedText = text.toUpperCase().replaceAll("\\W", "");
         final String secretRepeat = secret.repeat(text.length() / secret.length() + 1).toUpperCase();
-        final StringBuilder result = new StringBuilder();
+        final StringBuilder result = new StringBuilder(text.length());
         for (int i = 0; i < preprocessedText.length(); i++) {
             final char c = preprocessedText.charAt(i);
             final char s = secretRepeat.charAt(i);
 
             final char[] cypher = SQUARE[s - 'A'];
             final char encoded = cypher[c - 'A'];
-            result.append(encoded);
+            result.setCharAt(i, encoded);
         }
         return result.toString();
     }
