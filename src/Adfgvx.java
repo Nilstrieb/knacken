@@ -49,7 +49,7 @@ public class Adfgvx {
     static String mapToSub(int character, List<Character> matrix) {
         int index = matrix.indexOf((char) character);
         char first = ADFGVX[index / 6];
-        ch ar second = ADFGVX[index % 6];
+        char second = ADFGVX[index % 6];
         return "" + first + second;
     }
 
